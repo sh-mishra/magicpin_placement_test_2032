@@ -1,4 +1,4 @@
-# magicpin_placement_test_2032
+# magicpin_placement_test
 MagicPin JIIT Placement Test - Shantanu Mishra - 9915102032 - JIIT 128
 
 <h3> Public URL ====>    https://sh-mishra.github.io/magicpin_placement_test_9915102032/ </h3>
