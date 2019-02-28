@@ -9,13 +9,13 @@ function check(token){
 	{
 	    flag= true;
 	    para.appendChild(document.createElement("br"));
-		para.appendChild(document.createTextNode("<br>Length of password is less than 6 characters."));
+		para.appendChild(document.createTextNode("Length of password is less than 6 characters."));
 	}
 	else
 		if(token.length>12)
 		{	flag= true;		
 		para.appendChild(document.createElement("br"));
-			para.appendChild(document.createTextNode("<br>Length of password is greater than 12 characters."));
+			para.appendChild(document.createTextNode("Length of password is greater than 12 characters."));
 		}
 
 	var count1 = [0,0,0,0];
@@ -46,7 +46,7 @@ function check(token){
 		{
 		flag= true;
 		para.appendChild(document.createElement("br"));
-			para.appendChild(document.createTextNode("<br>Password must contain at least 1 letter in "+label[x]+"."));
+			para.appendChild(document.createTextNode("Password must contain at least 1 letter in "+label[x]+"."));
 		}
 	}
 	if(count2!=0){
@@ -57,7 +57,7 @@ function check(token){
 	if(flag==true)
 		{
 		//alert("FAILURE\n"+token+" : "+msg);
-		div.setAttribute("class","w3-panel w3-red");
+		div.setAttribute("class","w3-panel w3-red w3-animate-opacity");
 		div.setAttribute("style","width:500px");
 		head.appendChild(document.createTextNode("FAILURE : "+token));
 		div.appendChild(head);
@@ -66,7 +66,7 @@ function check(token){
 		}
 	else
 		{//alert("SUCCESS\n"+token+" : Password is acceptable.");
-		div.setAttribute("class","w3-panel w3-green");
+		div.setAttribute("class","w3-panel w3-green w3-animate-opacity");
 		div.setAttribute("style","width:500px");
 		head.appendChild(document.createTextNode("SUCCESS : "+token));
 		para.appendChild(document.createTextNode("Password is acceptable."));
