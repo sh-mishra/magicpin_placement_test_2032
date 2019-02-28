@@ -1,13 +1,21 @@
 function check(token){
-	var msg = "";
+    var flag = false;
+    var body = document.getElementById('main');
+    var div = document.createElement('div');
+    var head = document.createElement('h3');
+    var para = document.createElement('p');
+    
 	if(token.length<6)
 	{
-		msg=msg+"\nLength of password is less than 6 characters.";
+	    flag= true;
+	    para.appendChild(document.createElement("br"));
+		para.appendChild(document.createTextNode("<br>Length of password is less than 6 characters."));
 	}
 	else
 		if(token.length>12)
-		{			
-			msg=msg+"\nLength of password is greater than 12 characters.";
+		{	flag= true;		
+		para.appendChild(document.createElement("br"));
+			para.appendChild(document.createTextNode("<br>Length of password is greater than 12 characters."));
 		}
 
 	var count1 = [0,0,0,0];
@@ -36,16 +44,35 @@ function check(token){
 	{
 		if(count1[x]==0)
 		{
-			msg = msg+ "\nPassword must contain at least 1 letter in "+label[x]+".";
+		flag= true;
+		para.appendChild(document.createElement("br"));
+			para.appendChild(document.createTextNode("<br>Password must contain at least 1 letter in "+label[x]+"."));
 		}
 	}
-	if(count2!=0)
-		msg=msg+"\nPassword should not contain any letter from %!)(.";
+	if(count2!=0){
+	flag= true;
+	para.appendChild(document.createElement("br"));
+		para.appendChild(document.createTextNode("Password should not contain any letter from %!)(."));}
 
-	if(msg!="")
-		alert("FAILURE\n"+token+" : "+msg);
+	if(flag==true)
+		{
+		//alert("FAILURE\n"+token+" : "+msg);
+		div.setAttribute("class","w3-panel w3-red");
+		div.setAttribute("style","width:500px");
+		head.appendChild(document.createTextNode("FAILURE : "+token));
+		div.appendChild(head);
+		div.appendChild(para);
+		body.appendChild(div);
+		}
 	else
-		alert("SUCCESS\n"+token+" : Password is acceptable.");
+		{//alert("SUCCESS\n"+token+" : Password is acceptable.");
+		div.setAttribute("class","w3-panel w3-green");
+		div.setAttribute("style","width:500px");
+		head.appendChild(document.createTextNode("SUCCESS : "+token));
+		para.appendChild(document.createTextNode("Password is acceptable."));
+		div.appendChild(head);
+		div.appendChild(para);
+		body.appendChild(div);}
 }
 
 
